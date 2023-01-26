@@ -1,16 +1,14 @@
-    <html>
-    <head>
-    <title>ViaCEP Webservice</title>
+<html>
+
+<head>
+    <title>Site de Teste de Gilvanildo DevOps</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- Adicionando JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- Adicionando Javascript -->
     <script>
-
         $(document).ready(function() {
 
             function limpa_formulário_cep() {
@@ -21,7 +19,7 @@
                 $("#uf").val("");
                 $("#ibge").val("");
             }
-            
+
             //Quando o campo cep perde o foco.
             $("#cep").blur(function() {
 
@@ -35,7 +33,7 @@
                     var validacep = /^[0-9]{8}$/;
 
                     //Valida o formato do CEP.
-                    if(validacep.test(cep)) {
+                    if (validacep.test(cep)) {
 
                         //Preenche os campos com "..." enquanto consulta webservice.
                         $("#rua").val("...");
@@ -45,7 +43,7 @@
                         $("#ibge").val("...");
 
                         //Consulta o webservice viacep.com.br/
-                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                        $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
 
                             if (!("erro" in dados)) {
                                 //Atualiza os campos com os valores da consulta.
@@ -74,27 +72,37 @@
                 }
             });
         });
-
     </script>
-    </head>
+</head>
 
-    <body>
-        <h1 style= align-content: "center"; color: "blue;" >Sistema de Verificação de CEP</h1><p></p>
-    <!-- Inicio do formulario -->
-      <form method="get" action=".">
-        <label>Cep:
-        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" /></label><p></p>
-        <label>Rua:
-        <input name="rua" type="text" id="rua" size="60" /></label><p></p>
-        <label>Bairro:
-        <input name="bairro" type="text" id="bairro" size="40" /></label><p></p>
-        <label>Cidade:
-        <input name="cidade" type="text" id="cidade" size="40" /></label><p></p>
-        <label>Estado:
-        <input name="uf" type="text" id="uf" size="2" /></label><p></p>
-        <label>IBGE:
-        <input name="ibge" type="text" id="ibge" size="8" /></label><p></p>
-      </form>
-    </body>
+<body background="1.jpg">
+    <center>
+        <h1 style="color: blue;">Sistema de Verificação de CEP</h1>
+        <p></p>
+        <section style="text-align: center"><a href="index.nginx-debian.html">Home</a></section>
+        <hr>
+        <!-- Inicio do formulario -->
+        <form method="get " action=". ">
+            <label>CEP
+                <input name="cep " type="text " id="cep " value=" " size="10 " maxlength="9 " /></label>
+            <p></p>
+            <label>Rua
+        <input name="rua " type="text " id="rua " size="60 " /></label>
+            <p></p>
+            <label>Bairro
+        <input name="bairro " type="text " id="bairro " size="40 " /></label>
+            <p></p>
+            <label>Cidade
+        <input name="cidade " type="text " id="cidade " size="40 " /></label>
+            <p></p>
+            <label>Estado
+        <input name="uf " type="text " id="uf " size="2 " /></label>
+            <p></p>
+            <label>IBGE
+        <input name="ibge " type="text " id="ibge " size="8 " /></label>
+            <p></p>
+        </form>
+    </center>
+</body>
 
-    </html>
+</html>
